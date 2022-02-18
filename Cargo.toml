@@ -1,0 +1,16 @@
+[package]
+name = "advent-of-code-2016"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]] # Bin to run the `HelloWorld` gRPC server
+name = "day1"
+path = "src/day1.rs"
+
+[[bin]] # Bin to run the `HelloWorld` gRPC client
+name = "day2"
+path = "src/day2.rs"
+
+[dependencies]
