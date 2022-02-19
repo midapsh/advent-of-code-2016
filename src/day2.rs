@@ -1,3 +1,6 @@
+const DUMMY_INPUT: &str = include_str!("data/day2-dummy.txt");
+const REAL_INPUT: &str = include_str!("data/day2-real.txt");
+
 pub fn solve(value: &str) -> &str {
     unimplemented!()
 }
@@ -12,14 +15,6 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        assert_eq!(
-            "1985",
-            solve(
-                "ULL
-        RRDDD
-        LURDL
-        UUUUD"
-            )
-        );
+        assert_eq!("1985", solve("ULL\nRRDDD\nLURDL\nUUUUD"));
     }
 }
