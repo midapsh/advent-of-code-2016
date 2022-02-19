@@ -14,3 +14,18 @@ cargo run --bin day1
 # cargo run --bin day2
 # ...
 ```
+
+# Running tests
+
+Use the following command
+
+```shell
+# For example
+cargo test --bin day1
+# cargo test --bin day2
+# ...
+#
+# Run specific test (functions)
+cargo test --bin day1 test_part1 # --bin <binary> <test-function>
+# cargo test --bin day2 test_part1
+```
