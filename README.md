@@ -26,6 +26,6 @@ cargo test --bin day1
 # ...
 #
 # Run specific test (functions)
-cargo test --bin day1 test_part1 # --bin <binary> <test-function>
-# cargo test --bin day2 test_part1
+cargo test --bin day1 test_part_1 # --bin <binary> <test-function>
+# cargo test --bin day2 test_part_1
 ```
