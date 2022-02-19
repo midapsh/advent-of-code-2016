@@ -94,11 +94,11 @@ mod tests {
     use super::{solve_part_1, solve_part_2, DUMMY_INPUT};
 
     #[test]
-    fn test_part1() {
+    fn test_part_1() {
         assert_eq!("1985", solve_part_1(DUMMY_INPUT));
     }
     #[test]
-    fn test_part2() {
+    fn test_part_2() {
         assert_eq!("5DB3", solve_part_2(DUMMY_INPUT));
     }
 }
