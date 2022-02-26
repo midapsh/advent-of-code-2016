@@ -1,7 +1,5 @@
-pub const DUMMY_INPUT: &str = include_str!("data/day3-dummy.txt");
-pub const REAL_INPUT: &str = include_str!("data/day3-real.txt");
-
-type Dimension = usize;
+const _DUMMY_INPUT: &str = include_str!("data/day3-dummy.txt");
+const REAL_INPUT: &str = include_str!("data/day3-real.txt");
 
 fn extract_columns(line: &str) -> impl Iterator<Item = i32> + '_ {
     line.trim()
@@ -9,8 +7,8 @@ fn extract_columns(line: &str) -> impl Iterator<Item = i32> + '_ {
         .map(|x| x.trim().parse::<i32>().unwrap())
 }
 
-pub fn solve_part_1(input: &str) -> String {
-    input
+fn private_solve_part_1(values: &str) -> String {
+    values
         .lines()
         .map(|line| {
             let mut triangle_sides = extract_columns(line).collect::<Vec<_>>();
@@ -26,8 +24,8 @@ pub fn solve_part_1(input: &str) -> String {
         .to_string()
 }
 
-pub fn solve_part_2(input: &str) -> String {
-    let mut iter_lines = input.lines();
+fn private_solve_part_2(values: &str) -> String {
+    let mut iter_lines = values.lines();
     let mut n = 0;
     while let (Some(l1), Some(l2), Some(l3)) =
         (iter_lines.next(), iter_lines.next(), iter_lines.next())
@@ -46,21 +44,39 @@ pub fn solve_part_2(input: &str) -> String {
     n.to_string()
 }
 
-fn main() {
-    println!("{}", solve_part_1(REAL_INPUT));
-    println!("{}", solve_part_2(REAL_INPUT));
+fn _solve_part_1_dummy() -> String {
+    private_solve_part_1(_DUMMY_INPUT)
 }
 
+pub fn solve_part_1_real() -> String {
+    private_solve_part_1(REAL_INPUT)
+}
+
+fn _solve_part_2_dummy() -> String {
+    private_solve_part_2(_DUMMY_INPUT)
+}
+
+pub fn solve_part_2_real() -> String {
+    private_solve_part_2(REAL_INPUT)
+}
 #[cfg(test)]
 mod tests {
-    use super::{solve_part_1, solve_part_2, DUMMY_INPUT};
+    use super::{_solve_part_1_dummy, _solve_part_2_dummy, solve_part_1_real, solve_part_2_real};
 
     #[test]
-    fn test_part_1() {
-        assert_eq!("0", solve_part_1(DUMMY_INPUT));
+    fn test_part_1_dummy() {
+        assert_eq!("0", _solve_part_1_dummy());
     }
     #[test]
-    fn test_part_2() {
-        // assert_eq!("5DB3", solve_part_2(DUMMY_INPUT));
+    fn test_part_2_dummy() {
+        assert_eq!("", _solve_part_2_dummy());
+    }
+    #[test]
+    fn test_part_1_real() {
+        println!("{}", solve_part_1_real());
+    }
+    #[test]
+    fn test_part_2_real() {
+        println!("{}", solve_part_2_real());
     }
 }
