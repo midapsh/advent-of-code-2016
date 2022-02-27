@@ -120,7 +120,9 @@ pub fn solve_part_2_real() -> String {
 
 #[cfg(test)]
 mod tests {
-    use super::{_solve_part_1_dummy, _solve_part_2_dummy, solve_part_1_real, solve_part_2_real};
+    use super::{
+        _solve_part_1_dummy, _solve_part_2_dummy, decrypt, solve_part_1_real, solve_part_2_real,
+    };
 
     #[test]
     fn test_part_1_dummy() {
@@ -138,5 +140,13 @@ mod tests {
     #[test]
     fn test_part_2_real() {
         println!("{}", solve_part_2_real());
+    }
+    #[test]
+    fn test_decrypt() {
+        // "qzmt-zixmtkozy-ivhz-343" is "very encrypted name"
+        assert_eq!(
+            decrypt("qzmtzixmtkozyivhz", 343),
+            String::from("veryencryptedname")
+        )
     }
 }
