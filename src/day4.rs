@@ -4,13 +4,16 @@ use itertools::Itertools;
 
 const _DUMMY_INPUT: &str = include_str!("data/day4-dummy.txt");
 const REAL_INPUT: &str = include_str!("data/day4-real.txt");
+const CHECKSUM_LENGTH: usize = 5;
 const PART_2_MUST_FIND_THIS: &str = "northpoleobjectstorage";
 
 fn decrypt(name: &str, id: u32) -> String {
+    const LOWERCASE_A_AS_INTEGER: u32 = 97; // 'a' as u32
+    const ALPHABET_SIZE: u32 = 26; // ('z' as u32 - 'a' as u32 + 1)
     name.chars()
         .map(|c| {
-            ((((c as u32 - 'a' as u32) + id) % ('z' as u32 - 'a' as u32 + 1)) + 'a' as u32) as u8
-                as char
+            ((((c as u32 - LOWERCASE_A_AS_INTEGER) + id) % ALPHABET_SIZE) + LOWERCASE_A_AS_INTEGER)
+                as u8 as char
         })
         .collect()
 }
@@ -49,7 +52,7 @@ fn private_solve_part_1(values: &str) -> String {
             let response = hash_vec
                 .iter()
                 .map(|(&a, _b)| a)
-                .take(5)
+                .take(CHECKSUM_LENGTH)
                 .collect::<String>();
             if checksum == response {
                 sector_id
@@ -93,7 +96,7 @@ fn private_solve_part_2(values: &str) -> String {
         let response = hash_vec
             .iter()
             .map(|(&a, _b)| a)
-            .take(5)
+            .take(CHECKSUM_LENGTH)
             .collect::<String>();
         if checksum == response && decrypt(&encrypted_name, sector_id) == PART_2_MUST_FIND_THIS {
             return sector_id.to_string();
