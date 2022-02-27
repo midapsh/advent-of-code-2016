@@ -7,35 +7,17 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'day1'",
-            "cargo": {
-                "args": [
-                    "build",
-                    "--bin=day1",
-                    "--package=advent-of-code-2016"
-                ],
-                "filter": {
-                    "name": "day1",
-                    "kind": "bin"
-                }
-            },
-            "args": [],
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug unit tests in executable 'day1'",
+            "name": "Debug unit tests in library 'advent-of-code-2016'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
-                    "--bin=day1",
+                    "--lib",
                     "--package=advent-of-code-2016"
                 ],
                 "filter": {
-                    "name": "day1",
-                    "kind": "bin"
+                    "name": "advent-of-code-2016",
+                    "kind": "lib"
                 }
             },
             "args": [],
@@ -44,15 +26,15 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'day2'",
+            "name": "Debug executable 'advent-of-code-2016'",
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=day2",
+                    "--bin=advent-of-code-2016",
                     "--package=advent-of-code-2016"
                 ],
                 "filter": {
-                    "name": "day2",
+                    "name": "advent-of-code-2016",
                     "kind": "bin"
                 }
             },
@@ -62,16 +44,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in executable 'day2'",
+            "name": "Debug unit tests in executable 'advent-of-code-2016'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
-                    "--bin=day2",
+                    "--bin=advent-of-code-2016",
                     "--package=advent-of-code-2016"
                 ],
                 "filter": {
-                    "name": "day2",
+                    "name": "advent-of-code-2016",
                     "kind": "bin"
                 }
             },
@@ -81,35 +63,17 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'day3'",
-            "cargo": {
-                "args": [
-                    "build",
-                    "--bin=day3",
-                    "--package=advent-of-code-2016"
-                ],
-                "filter": {
-                    "name": "day3",
-                    "kind": "bin"
-                }
-            },
-            "args": [],
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug unit tests in executable 'day3'",
+            "name": "Debug benchmark 'benchmarks'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
-                    "--bin=day3",
+                    "--bench=benchmarks",
                     "--package=advent-of-code-2016"
                 ],
                 "filter": {
-                    "name": "day3",
-                    "kind": "bin"
+                    "name": "benchmarks",
+                    "kind": "bench"
                 }
             },
             "args": [],

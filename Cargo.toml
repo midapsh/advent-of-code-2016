@@ -8,6 +8,8 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0"
 structopt = "0.3"
+# Day4
+itertools = "0.10.3"
 
 [dev-dependencies]
 criterion = "0.3"
