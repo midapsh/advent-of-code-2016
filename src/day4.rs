@@ -1,8 +1,9 @@
-const _DUMMY_INPUT: &str = include_str!("data/day4-dummy.txt");
-const REAL_INPUT: &str = include_str!("data/day4-real.txt");
+use std::collections::HashMap;
 
 use itertools::Itertools;
-use std::collections::HashMap;
+
+const _DUMMY_INPUT: &str = include_str!("data/day4-dummy.txt");
+const REAL_INPUT: &str = include_str!("data/day4-real.txt");
 
 fn private_solve_part_1(values: &str) -> String {
     values
