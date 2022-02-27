@@ -31,17 +31,17 @@ fn private_solve_part_1(values: &str) -> String {
                 *counter.entry(c).or_insert(0) += 1;
             }
             let mut hash_vec = counter.iter().collect::<Vec<(&char, &i32)>>();
-            hash_vec.sort_by(|a, b| b.1.cmp(a.1));
+            hash_vec.sort_unstable_by(|&a, &b| match b.1.cmp(a.1) {
+                std::cmp::Ordering::Less => std::cmp::Ordering::Less,
+                std::cmp::Ordering::Equal => a.0.cmp(b.0),
+                std::cmp::Ordering::Greater => std::cmp::Ordering::Greater,
+            });
             let response = hash_vec
                 .iter()
-                .group_by(|(_, &b)| b)
-                .into_iter()
-                .map(|(_, group)| group.sorted().map(|(&a, _)| a).collect::<Vec<_>>())
-                .flatten()
+                .map(|(&a, _b)| a)
                 .take(5)
                 .collect::<String>();
-            // let response = hash_vec.iter().take(5).map(|(&a, _)| a).collect::<String>();
-            if checksum.eq(&response) {
+            if checksum == response {
                 sector_id
             } else {
                 0
