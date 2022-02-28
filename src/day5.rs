@@ -19,7 +19,23 @@ fn private_solve_part_1(values: &str) -> String {
 }
 
 fn private_solve_part_2(values: &str) -> String {
-    unimplemented!()
+    let mut output = ['-'; PASSWORD_LENGTH];
+    let mut index: i32 = 0;
+    while output.iter().any(|&c| c == '-') {
+        let data = values.to_string() + &index.to_string();
+        let hash = format!("{:x}", md5::compute(data.as_bytes()));
+        if let Some(suffix) = hash.strip_prefix(HASH_MATCH) {
+            let mut chars = suffix.chars();
+            let word_index = (chars.next().unwrap() as u32 - '0' as u32) as usize;
+            let word = chars.next().unwrap();
+            if word_index < output.len() && output[word_index] == '-' {
+                output[word_index] = word;
+            }
+        }
+        index += 1;
+    }
+
+    output.iter().collect()
 }
 
 fn _solve_part_1_dummy() -> String {
@@ -48,7 +64,7 @@ mod tests {
     }
     #[test]
     fn test_part_2_dummy() {
-        assert_eq!("", _solve_part_2_dummy());
+        assert_eq!("05ace8e3", _solve_part_2_dummy());
     }
     #[test]
     fn test_part_1_real() {
