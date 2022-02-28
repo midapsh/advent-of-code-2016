@@ -10,6 +10,8 @@ anyhow = "1.0"
 structopt = "0.3"
 # Day4
 itertools = "0.10.3"
+# Day5
+md5 = "0.7"
 
 [dev-dependencies]
 criterion = "0.3"
